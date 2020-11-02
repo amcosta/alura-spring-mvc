@@ -1,0 +1,12 @@
+version: "3.5"
+services:
+    db:
+        image: library/mysql:8.0.11
+        container_name: spring-mvc-mysql
+        ports:
+            - 3301:3306
+        volumes:
+            - ./var/mysql:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: "root"
+            MYSQL_DATABASE: "mudi"
