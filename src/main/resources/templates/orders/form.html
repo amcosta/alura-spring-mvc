@@ -10,25 +10,26 @@
         <h1 class="display-4">Novo Pedido</h1>
     </div>
 
-    <form action="/pedidos/novo" method="POST">
-        <div>
+    <form th:object="${createOrderForm}" action="/pedidos/novo" method="POST">
+        <div class="form-group">
             <label for="productName">Produto</label>
-            <input id="productName" name="productName" placeholder="nome do produto"/>
-            <small>Informa qual o nome do produto.</small>
+            <input class="form-control" th:field="*{productName}" placeholder="nome do produto"/>
+            <small>Informa qual o nome do produto.</small>ommunity
+
         </div>
-        <div>
+        <div class="form-group">
             <label for="productLink">Url</label>
-            <input id="productLink" name="productLink" placeholder="url do produto"/>
+            <input class="form-control" th:field="*{productLink}" placeholder="url do produto"/>
             <small>Procure em um site o produto que você deseja e cole a url da página aqui.</small>
         </div>
-        <div>
+        <div class="form-group">
             <label for="productImageUrl">Imagem</label>
-            <input id="productImageUrl" name="productImageUrl" placeholder="url da imagem"/>
+            <input class="form-control" th:field="*{productImageUrl}" placeholder="url da imagem"/>
             <small>Copie a url de uma boa imagem do produto e cole aqui para ajudar a conseguir compradores.</small>
         </div>
-        <div>
+        <div class="form-group">
             <label for="description">Descrição</label>
-            <textarea id="description" name="description" placeholder="Adicione detalhes importantes para ajudar o comprador."></textarea>
+            <textarea class="form-control" th:field="*{description}" name="description" placeholder="Adicione detalhes importantes para ajudar o comprador."></textarea>
         </div>
         <button type="submit">Cadastrar</button>
     </form>

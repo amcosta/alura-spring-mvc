@@ -2,9 +2,16 @@ package br.com.alura.mvc.mudi.form;
 
 import br.com.alura.mvc.mudi.model.Order;
 
+import javax.validation.constraints.NotBlank;
+
 public class CreateOrderForm {
+    @NotBlank
     private String productName;
+
+    @NotBlank
     private String productLink;
+
+    @NotBlank
     private String productImageUrl;
     private String description;
 
