@@ -1,11 +1,15 @@
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:insert="~{base :: head}"></head>
+<head th:insert="~{fragments/head :: head}"></head>
 <body>
 <div class="container">
     <header th:insert="~{fragments/header :: header('Meus Pedidos')}"></header>
 
     <div class="card" th:each="order : ${orders}">
-        <div class="card-header" th:text="${order.productName}">Nome do Produto</div>
+        <th:block th:switch="${order.status.name()}">
+            <div th:case="'AWAITING'" class="card-header alert alert-warning" th:text="${order.productName}">1 Nome do Produto</div>
+            <div th:case="'ACCEPTED'" class="card-header alert alert-info" th:text="${order.productName}">2 Nome do Produto</div>
+            <div th:case="'DELIVERED'" class="card-header alert alert-success" th:text="${order.productName}">3 Nome do Produto</div>
+        </th:block>
         <div class="card-body">
             <div class="row">
                 <div class="col-12 col-sm-8 mb-3">

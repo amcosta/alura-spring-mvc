@@ -1,9 +1,6 @@
 package br.com.alura.mvc.mudi.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -18,6 +15,9 @@ public class Order {
     private String productImageUrl;
     private String description;
     private LocalDateTime deliveryDate;
+
+    @Enumerated(EnumType.STRING)
+    private OrderStatus status;
 
     public Long getId() {
         return id;
@@ -69,5 +69,9 @@ public class Order {
 
     public void setDeliveryDate(LocalDateTime deliveryDate) {
         this.deliveryDate = deliveryDate;
+    }
+
+    public OrderStatus getStatus() {
+        return status;
     }
 }
